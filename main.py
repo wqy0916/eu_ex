@@ -51,7 +51,7 @@ CHECK_CAPTCHA_SOLVER_USAGE = True
 # options: ZapierAirtable or Mailparser
 LOGIN_PIN_SENDER = "ZapierAirtable"
 # options: ZapierAirtable or Mailparser
-RENEW_PIN_SENDER = "Mailparser"
+RENEW_PIN_SENDER = "ZapierAirtable"
 
 # For getting login PIN from airtable, zapier send email to airtable
 AIRTABLE_API_KEY = os.environ.get("AIRTABLE_API_KEY")
