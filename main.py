@@ -23,7 +23,7 @@ from email.mime.text import MIMEText
 from smtplib import SMTP_SSL, SMTPDataError
 
 import requests
-from pyairtable import Table
+from pyairtable import Table, Api
 from bs4 import BeautifulSoup
 
 # Please use one space to separate multiple accounts
@@ -438,6 +438,13 @@ class EUserv(object):
             if records:
                 return records['fields']['PIN']
             return ""
+
+        def cleanup_all_records(self):
+            table = Table(self.api_key, self.base_id, self.table_name)
+            api = Api(self.api_key)
+            for records in api.iterate(self.base_id, self.table_name, page_size=10, max_records=1200, sort=["Index"]):
+                record_ids = [record["id"] for record in records]
+                table.batch_delete(record_ids)
 
     class Mailparser(object):
  
