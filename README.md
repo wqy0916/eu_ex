@@ -223,7 +223,13 @@ Tax office ..............: Jena
 International VAT Number.: DE813856317
 ```
 
+## Acknowledgement
+
+- Thanks EUserv provides us free IPv6 VPS for learning.
+- Thanks CokeMine & its repository contributors provides us the original *EUserv_extend* script .The internet never forgets, but people do.
+
 ## Other Implementations
+
 Login to the mailbox to get the email containing EUserv PIN when logging in or renewing:
   1. https://github.com/GGttyyy/Euserv_extend_pin
   2. https://github.com/SAOJSM/EU_CHICK_EXTEND_CHT
