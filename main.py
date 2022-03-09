@@ -69,7 +69,7 @@ MAILPARSER_DL_IDS_FOR_LOGIN = os.environ.get("MAILPARSER_DL_IDS_FOR_LOGIN")
 MAILPARSER_DL_IDS_FOR_RENEW = os.environ.get("MAILPARSER_DL_IDS_FOR_RENEW")
 
 # Waiting time of receiving PIN, units are seconds.
-WAITING_TIME_OF_PIN = 12
+WAITING_TIME_OF_PIN = 16
 # Maximum number of login retry
 LOGIN_MAX_RETRY_COUNT = 5
 
