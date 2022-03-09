@@ -555,7 +555,7 @@ class EUserv(object):
                     captcha_code,
                 )
             )
-            if self.CHECK_CAPTCHA_SOLVER_USAGE:
+            if self.check_captcha_solver_usage:
                 usage = self.captcha_solver.get_captcha_solver_usage()
                 log(
                     "[Captcha Solver] {} {} {}{} {}".format(
