@@ -75,7 +75,9 @@ Tips. If you deploy it as a severless function, e.g. AWS Lambda, you need to pac
 
 `AIRTABLE_TABLE_NAME_FOR_RENEW`: airtable name for receiving login pin. its value is `Renew`, it is not recommended to change this value anymore, unless you know what you are going to do.
 
-`WAITING_TIME_OF_PIN`: waiting time of receiving PIN, units are seconds. default is `16`.
+`WAITING_TIME_OF_LOGIN_PIN`: waiting time of receiving login PIN, units are seconds. default is `20`.
+
+`WAITING_TIME_OF_RENEW_PIN`: waiting time of receiving renew PIN, units are seconds. default is `20`.
 
 `LOGIN_MAX_RETRY_COUNT`: maximum number of login retry. default is `5`.
 

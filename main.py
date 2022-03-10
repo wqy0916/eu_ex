@@ -68,8 +68,11 @@ AIRTABLE_TABLE_NAME_FOR_RENEW = "Renew"
 MAILPARSER_DL_IDS_FOR_LOGIN = os.environ.get("MAILPARSER_DL_IDS_FOR_LOGIN")
 MAILPARSER_DL_IDS_FOR_RENEW = os.environ.get("MAILPARSER_DL_IDS_FOR_RENEW")
 
-# Waiting time of receiving PIN, units are seconds.
-WAITING_TIME_OF_PIN = 16
+# Waiting time of receiving login PIN, units are seconds.
+WAITING_TIME_OF_LOGIN_PIN = 20
+# Waiting time of receiving renew PIN, units are seconds.
+WAITING_TIME_OF_RENEW_PIN = 20
+
 # Maximum number of login retry
 LOGIN_MAX_RETRY_COUNT = 5
 
@@ -487,8 +490,10 @@ class EUserv(object):
 
         # Checking CAPTCHA API usage, options: True or False
         self.check_captcha_solver_usage = CHECK_CAPTCHA_SOLVER_USAGE
-        # Waiting time of receiving PIN, units are seconds.
-        self.waiting_time_of_pin = WAITING_TIME_OF_PIN
+        # Waiting time of receiving login PIN, units are seconds.
+        self.waiting_time_of_login_pin = WAITING_TIME_OF_LOGIN_PIN
+        # Waiting time of receiving renew PIN, units are seconds.
+        self.waiting_time_of_renew_pin = WAITING_TIME_OF_RENEW_PIN
         self.truecaptcha_userid = TRUECAPTCHA_USERID
         self.truecaptcha_apikey = TRUECAPTCHA_APIKEY
         # For getting login PIN from airtable, zapier send email to airtable
@@ -623,7 +628,7 @@ class EUserv(object):
                 log_lang_options.get(log_lang, lambda x: x)("..."),
             )
         )
-        time.sleep(self.waiting_time_of_pin)
+        time.sleep(self.waiting_time_of_login_pin)
         if pin_sender == "Mailparser": 
             l_pin = self.Mailparser().get_pin(pin_sender_id)
         elif pin_sender == "ZapierAirtable":
@@ -803,8 +808,8 @@ class EUserv(object):
         #     print("new PIN Not Sended")
         #     return False
 
-        # sleep WAITING_TIME_OF_PIN seconds waiting for mailparser email parsed PIN
-        time.sleep(self.waiting_time_of_pin)
+        # sleep several seconds waiting for mailparser email parsed PIN
+        time.sleep(self.waiting_time_of_renew_pin)
         if pin_sender == "Mailparser":
             # pin_sender_id <==> mailparser_dl_url_id
             pin = self.Mailparser().get_pin(pin_sender_id)
