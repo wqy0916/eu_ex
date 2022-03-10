@@ -99,10 +99,10 @@ For renew pin email, you can refer to the content of `EUserv "EUserv - PIN for t
   2. One base of `airtable` corresponds to one euserv account (login and renew are already included, no need to split the usage). 
 
 ### Mailparser Setting
-see [Mailparser](./docs/Mailparser.md).
+see [Mailparser](./docs/Mailparser.md). This approach is recommended for receiving renew PIN.
 
 ### Zapier + Airtable Setting
-see [ZapierAirtable](./docs/ZapierAirtable.md). This approach is recommended.
+see [ZapierAirtable](./docs/ZapierAirtable.md). This approach is recommended for receiving login PIN.
 
 ### How to run
 
