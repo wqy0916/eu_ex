@@ -1036,7 +1036,7 @@ class EUserv(object):
             )
             for k, v in SERVERS.items():
                 if v:
-                    if not renew(
+                    if not self.renew(
                         sessid, s, passwd_list[i], k, renew_pin_sender, renew_pin_sender_ids[i]
                     ):
                         log(
