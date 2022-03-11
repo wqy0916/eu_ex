@@ -115,9 +115,9 @@ SERVER_CHAN_SENDKEY = os.environ.get("SERVER_CHAN_SENDKEY", "")
 
 
 # Language Options: en/chs/cht, or leave it blank
-log_lang = "en"
+LOG_LANG = "en"
 log_lang_options = dict()
-if log_lang not in ["en", "", None]:
+if LOG_LANG not in ["en", "", None]:
     try:
         import locales
         # Localization
@@ -151,7 +151,7 @@ def telegram():
         (
             "text",
             "{}\n\n".format(
-                log_lang_options.get(log_lang, lambda x: x)("EUserv Renewal Logs")
+                log_lang_options.get(LOG_LANG, lambda x: x)("EUserv Renewal Logs")
             )
             + desp,
         ),
@@ -162,13 +162,13 @@ def telegram():
     if response.status_code != 200:
         print(
             "Telegram Bot {}".format(
-                log_lang_options.get(log_lang, lambda x: x)("push failed")
+                log_lang_options.get(LOG_LANG, lambda x: x)("push failed")
             )
         )
     else:
         print(
             "Telegram Bot {}".format(
-                log_lang_options.get(log_lang, lambda x: x)("push successfully")
+                log_lang_options.get(LOG_LANG, lambda x: x)("push successfully")
             )
         )
 
@@ -205,7 +205,7 @@ def send_mail_by_yandex(
 def email():
     msg = (
         "{}\n\n".format(
-            log_lang_options.get(log_lang, lambda x: x)("EUserv Renewal Logs")
+            log_lang_options.get(LOG_LANG, lambda x: x)("EUserv Renewal Logs")
         )
         + desp
     )
@@ -213,7 +213,7 @@ def email():
         send_mail_by_yandex(
             RECEIVER_EMAIL,
             YD_EMAIL,
-            log_lang_options.get(log_lang, lambda x: x)("EUserv Renewal Logs"),
+            log_lang_options.get(LOG_LANG, lambda x: x)("EUserv Renewal Logs"),
             msg,
             None,
             YD_EMAIL,
@@ -221,21 +221,21 @@ def email():
         )
         print(
             "eMail {}".format(
-                log_lang_options.get(log_lang, lambda x: x)("push successfully")
+                log_lang_options.get(LOG_LANG, lambda x: x)("push successfully")
             )
         )
     except requests.exceptions.RequestException as e:
         print(str(e))
         print(
             "eMail {}".format(
-                log_lang_options.get(log_lang, lambda x: x)("push failed")
+                log_lang_options.get(LOG_LANG, lambda x: x)("push failed")
             )
         )
     except SMTPDataError as e1:
         print(str(e1))
         print(
             "eMail {}".format(
-                log_lang_options.get(log_lang, lambda x: x)("push failed")
+                log_lang_options.get(LOG_LANG, lambda x: x)("push failed")
             )
         )
 
@@ -243,7 +243,7 @@ def email():
 # Server Chan https://sct.ftqq.com
 def server_chan():
     data = {
-        "title": log_lang_options.get(log_lang, lambda x: x)("EUserv Renewal Logs"),
+        "title": log_lang_options.get(LOG_LANG, lambda x: x)("EUserv Renewal Logs"),
         "desp": desp,
     }
     response = requests.post(
@@ -252,15 +252,15 @@ def server_chan():
     if response.status_code != 200:
         print(
             "{} {}".format(
-                log_lang_options.get(log_lang, lambda x: x)("Server Chan"),
-                log_lang_options.get(log_lang, lambda x: x)("push failed"),
+                log_lang_options.get(LOG_LANG, lambda x: x)("Server Chan"),
+                log_lang_options.get(LOG_LANG, lambda x: x)("push failed"),
             )
         )
     else:
         print(
             "{} {}".format(
-                log_lang_options.get(log_lang, lambda x: x)("Server Chan"),
-                log_lang_options.get(log_lang, lambda x: x)("push successfully"),
+                log_lang_options.get(LOG_LANG, lambda x: x)("Server Chan"),
+                log_lang_options.get(LOG_LANG, lambda x: x)("push successfully"),
             )
         )
 
@@ -319,18 +319,18 @@ class EUserv(object):
                     if "RESULT  IS" in solved_result:
                         log(
                             "[Captcha Solver] {}{}".format(
-                                log_lang_options.get(log_lang, lambda x: x)(
+                                log_lang_options.get(LOG_LANG, lambda x: x)(
                                     "You are using the demo apikey"
                                 ),
-                                log_lang_options.get(log_lang, lambda x: x)("."),
+                                log_lang_options.get(LOG_LANG, lambda x: x)("."),
                             )
                         )
                         print(
                             "{}{}".format(
-                                log_lang_options.get(log_lang, lambda x: x)(
+                                log_lang_options.get(LOG_LANG, lambda x: x)(
                                     "There is no guarantee that demo apikey will work in the future"
                                 ),
-                                log_lang_options.get(log_lang, lambda x: x)("!"),
+                                log_lang_options.get(LOG_LANG, lambda x: x)("!"),
                             )
                         )
                         # because using demo apikey
@@ -339,10 +339,10 @@ class EUserv(object):
                         # using your own apikey
                         log(
                             "[Captcha Solver] {}{}".format(
-                                log_lang_options.get(log_lang, lambda x: x)(
+                                log_lang_options.get(LOG_LANG, lambda x: x)(
                                     "You are using your own apikey"
                                 ),
-                                log_lang_options.get(log_lang, lambda x: x)("."),
+                                log_lang_options.get(LOG_LANG, lambda x: x)("."),
                             )
                         )
                         text = solved_result
@@ -370,32 +370,32 @@ class EUserv(object):
                 else:
                     print(
                         "[Captcha Solver] {}{} {}".format(
-                            log_lang_options.get(log_lang, lambda x: x)("Returned JSON"),
-                            log_lang_options.get(log_lang, lambda x: x)(":"),
+                            log_lang_options.get(LOG_LANG, lambda x: x)("Returned JSON"),
+                            log_lang_options.get(LOG_LANG, lambda x: x)(":"),
                             solved,
                         )
                     )
                     log(
                         "[Captcha Solver] {}{}".format(
-                            log_lang_options.get(log_lang, lambda x: x)("TrueCaptcha Service Exception"),
-                            log_lang_options.get(log_lang, lambda x: x)("!"),
+                            log_lang_options.get(LOG_LANG, lambda x: x)("TrueCaptcha Service Exception"),
+                            log_lang_options.get(LOG_LANG, lambda x: x)("!"),
                         )
                     )
                     raise ValueError("[Captcha Solver] TrueCaptcha Service Exception!")
             else:
                 print(
                     "[Captcha Solver] {}{} {}".format(
-                        log_lang_options.get(log_lang, lambda x: x)("Returned JSON"),
-                        log_lang_options.get(log_lang, lambda x: x)(":"),
+                        log_lang_options.get(LOG_LANG, lambda x: x)("Returned JSON"),
+                        log_lang_options.get(LOG_LANG, lambda x: x)(":"),
                         solved,
                     )
                 )
                 log(
                     "[Captcha Solver] {}{}".format(
-                        log_lang_options.get(log_lang, lambda x: x)(
+                        log_lang_options.get(LOG_LANG, lambda x: x)(
                             "Failed to find parsed results"
                         ),
-                        log_lang_options.get(log_lang, lambda x: x)("!"),
+                        log_lang_options.get(LOG_LANG, lambda x: x)("!"),
                     )
                 )
                 raise KeyError("[Captcha Solver] Failed to find parsed results!")
@@ -520,10 +520,10 @@ class EUserv(object):
                         if number > 1:
                             log(
                                 "[EUserv] {} {}".format(
-                                    log_lang_options.get(log_lang, lambda x: x)(
+                                    log_lang_options.get(LOG_LANG, lambda x: x)(
                                         "Login retried the @@@ time"
                                     ).replace("@@@", ordinal(number)),
-                                    log_lang_options.get(log_lang, lambda x: x)("."),
+                                    log_lang_options.get(LOG_LANG, lambda x: x)("."),
                                 )
                             )
                         sess_id, session = func(self, username, password, pin_sender, pin_sender_id)
@@ -542,10 +542,10 @@ class EUserv(object):
         headers = {"user-agent": self.USER_AGENT, "origin": "https://www.euserv.com"}
         log(
             "[Captcha Solver] {}{}".format(
-                log_lang_options.get(log_lang, lambda x: x)(
+                log_lang_options.get(LOG_LANG, lambda x: x)(
                     "Performing CAPTCHA recognition"
                 ),
-                log_lang_options.get(log_lang, lambda x: x)("..."),
+                log_lang_options.get(LOG_LANG, lambda x: x)("..."),
             )
         )
         solved_result = self.captcha_solver.captcha_solver(session)
@@ -553,10 +553,10 @@ class EUserv(object):
             captcha_code = self.captcha_solver.handle_captcha_solved_result(solved_result)
             log(
                 "[Captcha Solver] {}{} {}".format(
-                    log_lang_options.get(log_lang, lambda x: x)(
+                    log_lang_options.get(LOG_LANG, lambda x: x)(
                         "The recognized CAPTCHA is"
                     ),
-                    log_lang_options.get(log_lang, lambda x: x)(":"),
+                    log_lang_options.get(LOG_LANG, lambda x: x)(":"),
                     captcha_code,
                 )
             )
@@ -564,12 +564,12 @@ class EUserv(object):
                 usage = self.captcha_solver.get_captcha_solver_usage()
                 log(
                     "[Captcha Solver] {} {} {}{} {}".format(
-                        log_lang_options.get(log_lang, lambda x: x)("Current date"),
+                        log_lang_options.get(LOG_LANG, lambda x: x)("Current date"),
                         usage[0]["date"],
-                        log_lang_options.get(log_lang, lambda x: x)(
+                        log_lang_options.get(LOG_LANG, lambda x: x)(
                             "TrueCaptcha api usage count"
                         ),
-                        log_lang_options.get(log_lang, lambda x: x)(":"),
+                        log_lang_options.get(LOG_LANG, lambda x: x)(":"),
                         usage[0]["count"],
                     )
                 )
@@ -591,7 +591,7 @@ class EUserv(object):
             ):
                 log(
                     "[Captcha Solver] {}".format(
-                        log_lang_options.get(log_lang, lambda x: x)(
+                        log_lang_options.get(LOG_LANG, lambda x: x)(
                             "CAPTCHA Verification passed"
                         )
                     )
@@ -600,7 +600,7 @@ class EUserv(object):
             else:
                 log(
                     "[Captcha Solver] {}".format(
-                        log_lang_options.get(log_lang, lambda x: x)(
+                        log_lang_options.get(LOG_LANG, lambda x: x)(
                             "CAPTCHA Verification failed"
                         )
                     )
@@ -622,10 +622,10 @@ class EUserv(object):
         headers = {"user-agent": self.USER_AGENT, "origin": "https://www.euserv.com"}
         log(
             "[PIN Solver] {}{}".format(
-                log_lang_options.get(log_lang, lambda x: x)(
+                log_lang_options.get(LOG_LANG, lambda x: x)(
                     f"Getting login PIN from {pin_sender}"
                 ),
-                log_lang_options.get(log_lang, lambda x: x)("..."),
+                log_lang_options.get(LOG_LANG, lambda x: x)("..."),
             )
         )
         time.sleep(self.waiting_time_of_login_pin)
@@ -638,7 +638,7 @@ class EUserv(object):
         if l_pin:
             log(
                 "[PIN Solver] {}{} {}".format(
-                    log_lang_options.get(log_lang, lambda x: x)("PIN"),
+                    log_lang_options.get(LOG_LANG, lambda x: x)("PIN"),
                     ":",
                     l_pin
                 )
@@ -662,7 +662,7 @@ class EUserv(object):
             ):
                 log(
                     "[PIN Solver] {}".format(
-                        log_lang_options.get(log_lang, lambda x: x)(
+                        log_lang_options.get(LOG_LANG, lambda x: x)(
                             "Login PIN Verification passed"
                         )
                     )
@@ -671,7 +671,7 @@ class EUserv(object):
             else:
                 log(
                     "[PIN Solver] {}".format(
-                        log_lang_options.get(log_lang, lambda x: x)(
+                        log_lang_options.get(LOG_LANG, lambda x: x)(
                             "Login PIN Verification failed"
                         )
                     )
@@ -703,19 +703,20 @@ class EUserv(object):
         }
         r = session.post(url, headers=headers, data=login_data)
         r.raise_for_status()
+        resp_text = r.text
 
         if (
-            r.text.find("Hello") == -1
-            and r.text.find("Confirm or change your customer data here") == -1
+            resp_text.find("Hello") == -1
+            and resp_text.find("Confirm or change your customer data here") == -1
         ):
             if (
-                r.text.find(
+                resp_text.find(
                     "To finish the login process please solve the following captcha."
                 )
                 == -1
             ):
                 if (
-                    r.text.find(
+                    resp_text.find(
                         "To finish the login process enter the PIN that you receive via email."
                     )
                     == -1
@@ -815,8 +816,8 @@ class EUserv(object):
             pin = self.Mailparser().get_pin(pin_sender_id)
             log(
                 "[Mailparser] {}{} {}".format(
-                    log_lang_options.get(log_lang, lambda x: x)("PIN"),
-                    log_lang_options.get(log_lang, lambda x: x)(":"),
+                    log_lang_options.get(LOG_LANG, lambda x: x)("PIN"),
+                    log_lang_options.get(LOG_LANG, lambda x: x)(":"),
                     pin,
                 )
             )
@@ -825,8 +826,8 @@ class EUserv(object):
             pin = self.ZapierAirtable(self.airtable_api_key, pin_sender_id, self.airtable_table_name_for_renew).get_pin()
             log(
                 "[ZapierAirtable] {}{} {}".format(
-                    log_lang_options.get(log_lang, lambda x: x)("PIN"),
-                    log_lang_options.get(log_lang, lambda x: x)(":"),
+                    log_lang_options.get(LOG_LANG, lambda x: x)("PIN"),
+                    log_lang_options.get(LOG_LANG, lambda x: x)(":"),
                     pin,
                 )
             )
@@ -842,9 +843,10 @@ class EUserv(object):
         }
         r = session.post(url, headers=headers, data=data)
         r.raise_for_status()
-        if not json.loads(r.text)["rs"] == "success":
+        resp_text = r.text
+        if not json.loads(resp_text)["rs"] == "success":
             return False
-        token = json.loads(r.text)["token"]["value"]
+        token = json.loads(resp_text)["token"]["value"]
         data = {
             "sess_id": sess_id,
             "ord_id": order_id,
@@ -858,8 +860,8 @@ class EUserv(object):
     def check(self, sess_id: str, session: requests.session):
         print(
             "{}{}".format(
-                log_lang_options.get(log_lang, lambda x: x)("Checking"),
-                log_lang_options.get(log_lang, lambda x: x)("..."),
+                log_lang_options.get(LOG_LANG, lambda x: x)("Checking"),
+                log_lang_options.get(LOG_LANG, lambda x: x)("..."),
             )
         )
         d = self.get_servers(sess_id, session)
@@ -869,21 +871,21 @@ class EUserv(object):
                 flag = False
                 log(
                     "[EUserv] {}{} {} {}{}".format(
-                        log_lang_options.get(log_lang, lambda x: x)("ServerID"),
-                        log_lang_options.get(log_lang, lambda x: x)(":"),
+                        log_lang_options.get(LOG_LANG, lambda x: x)("ServerID"),
+                        log_lang_options.get(LOG_LANG, lambda x: x)(":"),
                         key,
-                        log_lang_options.get(log_lang, lambda x: x)("Renew Failed"),
-                        log_lang_options.get(log_lang, lambda x: x)("!"),
+                        log_lang_options.get(LOG_LANG, lambda x: x)("Renew Failed"),
+                        log_lang_options.get(LOG_LANG, lambda x: x)("!"),
                     )
                 )
 
         if flag:
             log(
                 "[EUserv] {}{} {}{}".format(
-                    log_lang_options.get(log_lang, lambda x: x)("ALL Work Done"),
-                    log_lang_options.get(log_lang, lambda x: x)("!"),
-                    log_lang_options.get(log_lang, lambda x: x)("Enjoy"),
-                    log_lang_options.get(log_lang, lambda x: x)("~"),
+                    log_lang_options.get(LOG_LANG, lambda x: x)("ALL Work Done"),
+                    log_lang_options.get(LOG_LANG, lambda x: x)("!"),
+                    log_lang_options.get(LOG_LANG, lambda x: x)("Enjoy"),
+                    log_lang_options.get(LOG_LANG, lambda x: x)("~"),
                 )
             )
 
@@ -891,10 +893,10 @@ class EUserv(object):
         if not self.customer_ids or not self.passwords:
             log(
                 "[EUserv] {}{}".format(
-                    log_lang_options.get(log_lang, lambda x: x)(
+                    log_lang_options.get(LOG_LANG, lambda x: x)(
                         "You have not added any accounts"
                     ),
-                    log_lang_options.get(log_lang, lambda x: x)("."),
+                    log_lang_options.get(LOG_LANG, lambda x: x)("."),
                 )
             )
             exit(1)
@@ -903,10 +905,10 @@ class EUserv(object):
         if len(user_list) != len(passwd_list):
             log(
                 "[EUserv] {}{}".format(
-                    log_lang_options.get(log_lang, lambda x: x)(
+                    log_lang_options.get(LOG_LANG, lambda x: x)(
                         "The number of customerids and passwords do not match"
                     ),
-                    log_lang_options.get(log_lang, lambda x: x)("!"),
+                    log_lang_options.get(LOG_LANG, lambda x: x)("!"),
                 )
             )
             exit(1)
@@ -921,10 +923,10 @@ class EUserv(object):
             if len(mailparser_dl_ids_for_login) != len(user_list) or len(mailparser_dl_ids_for_renew) != len(user_list):
                 log(
                     "[Mailparser] {}{}".format(
-                        log_lang_options.get(log_lang, lambda x: x)(
+                        log_lang_options.get(LOG_LANG, lambda x: x)(
                             "The number of mailparser_dl_ids_for_login or mailparser_dl_ids_for_renew do not match with customerids"
                         ),
-                        log_lang_options.get(log_lang, lambda x: x)("!"),
+                        log_lang_options.get(LOG_LANG, lambda x: x)("!"),
                     )
                 )
                 exit(1)
@@ -938,10 +940,10 @@ class EUserv(object):
             if len(mailparser_dl_ids_for_login) != len(user_list) or len(base_ids) != len(user_list):
                 log(
                     "[Mailparser] {}{}".format(
-                        log_lang_options.get(log_lang, lambda x: x)(
+                        log_lang_options.get(LOG_LANG, lambda x: x)(
                             "The number of mailparser_dl_ids_for_login or airtable base ids do not match with customerids"
                         ),
-                        log_lang_options.get(log_lang, lambda x: x)("!"),
+                        log_lang_options.get(LOG_LANG, lambda x: x)("!"),
                     )
                 )
                 exit(1)
@@ -954,10 +956,10 @@ class EUserv(object):
             if len(base_ids) != len(user_list):
                 log(
                     "[Mailparser] {}{}".format(
-                        log_lang_options.get(log_lang, lambda x: x)(
+                        log_lang_options.get(LOG_LANG, lambda x: x)(
                             "The number of airtable base ids do not match with customerids"
                         ),
-                        log_lang_options.get(log_lang, lambda x: x)("!"),
+                        log_lang_options.get(LOG_LANG, lambda x: x)("!"),
                     )
                 )
                 exit(1)
@@ -971,10 +973,10 @@ class EUserv(object):
             if len(base_ids) != len(user_list) or len(mailparser_dl_ids_for_renew) != len(user_list):
                 log(
                     "[Mailparser] {}{}".format(
-                        log_lang_options.get(log_lang, lambda x: x)(
+                        log_lang_options.get(LOG_LANG, lambda x: x)(
                             "The number of airtable base ids or mailparser_dl_ids_for_renew do not match with customerids"
                         ),
-                        log_lang_options.get(log_lang, lambda x: x)("!"),
+                        log_lang_options.get(LOG_LANG, lambda x: x)("!"),
                     )
                 )
                 exit(1)
@@ -985,7 +987,7 @@ class EUserv(object):
         else:
             log(
                 "{}".format(
-                    log_lang_options.get(log_lang, lambda x: x)(
+                    log_lang_options.get(LOG_LANG, lambda x: x)(
                         "Configuration Error"
                     )
                 )
@@ -997,41 +999,41 @@ class EUserv(object):
             print("*" * 30)
             log(
                 "[EUserv] {}{}".format(
-                    log_lang_options.get(log_lang, lambda x: x)(
+                    log_lang_options.get(LOG_LANG, lambda x: x)(
                         "Renewing the @@@ account"
                     ).replace("@@@", ordinal(i + 1)),
-                    log_lang_options.get(log_lang, lambda x: x)("..."),
+                    log_lang_options.get(LOG_LANG, lambda x: x)("..."),
                 )
             )
             sessid, s = self.login(user_list[i], passwd_list[i], login_pin_sender, login_pin_sender_ids[i])
             if sessid == "-1":
                 log(
                     "[EUserv] {}{} {}{}".format(
-                        log_lang_options.get(log_lang, lambda x: x)(
+                        log_lang_options.get(LOG_LANG, lambda x: x)(
                             "The @@@ account login failed"
                         ).replace("@@@", ordinal(i + 1)),
-                        log_lang_options.get(log_lang, lambda x: x)(","),
-                        log_lang_options.get(log_lang, lambda x: x)(
+                        log_lang_options.get(LOG_LANG, lambda x: x)(","),
+                        log_lang_options.get(LOG_LANG, lambda x: x)(
                             "please check the login information"
                         ),
-                        log_lang_options.get(log_lang, lambda x: x)("."),
+                        log_lang_options.get(LOG_LANG, lambda x: x)("."),
                     )
                 )
                 continue
             SERVERS = self.get_servers(sessid, s)
             log(
                 "[EUserv] {} {}{} {}{}".format(
-                    log_lang_options.get(log_lang, lambda x: x)(
+                    log_lang_options.get(LOG_LANG, lambda x: x)(
                         "The @@@ account is detected"
                     ).replace("@@@", ordinal(i + 1)),
-                    log_lang_options.get(log_lang, lambda x: x)("with @@@ VPS").replace(
+                    log_lang_options.get(LOG_LANG, lambda x: x)("with @@@ VPS").replace(
                         "@@@", str(len(SERVERS))
                     ),
-                    log_lang_options.get(log_lang, lambda x: x)(","),
-                    log_lang_options.get(log_lang, lambda x: x)(
+                    log_lang_options.get(LOG_LANG, lambda x: x)(","),
+                    log_lang_options.get(LOG_LANG, lambda x: x)(
                         "renewals are being attempted"
                     ),
-                    log_lang_options.get(log_lang, lambda x: x)("..."),
+                    log_lang_options.get(LOG_LANG, lambda x: x)("..."),
                 )
             )
             for k, v in SERVERS.items():
@@ -1041,35 +1043,35 @@ class EUserv(object):
                     ):
                         log(
                             "[EUserv] {}{} {} {}{}".format(
-                                log_lang_options.get(log_lang, lambda x: x)("ServerID"),
-                                log_lang_options.get(log_lang, lambda x: x)(":"),
+                                log_lang_options.get(LOG_LANG, lambda x: x)("ServerID"),
+                                log_lang_options.get(LOG_LANG, lambda x: x)(":"),
                                 k,
-                                log_lang_options.get(log_lang, lambda x: x)("renew Error"),
-                                log_lang_options.get(log_lang, lambda x: x)("!"),
+                                log_lang_options.get(LOG_LANG, lambda x: x)("renew Error"),
+                                log_lang_options.get(LOG_LANG, lambda x: x)("!"),
                             )
                         )
                     else:
                         log(
                             "[EUserv] {}{} {} {}{}".format(
-                                log_lang_options.get(log_lang, lambda x: x)("ServerID"),
-                                log_lang_options.get(log_lang, lambda x: x)(":"),
+                                log_lang_options.get(LOG_LANG, lambda x: x)("ServerID"),
+                                log_lang_options.get(LOG_LANG, lambda x: x)(":"),
                                 k,
-                                log_lang_options.get(log_lang, lambda x: x)(
+                                log_lang_options.get(LOG_LANG, lambda x: x)(
                                     "has been successfully renewed"
                                 ),
-                                log_lang_options.get(log_lang, lambda x: x)("!"),
+                                log_lang_options.get(LOG_LANG, lambda x: x)("!"),
                             )
                         )
                 else:
                     log(
                         "[EUserv] {}{} {} {}{}".format(
-                            log_lang_options.get(log_lang, lambda x: x)("ServerID"),
-                            log_lang_options.get(log_lang, lambda x: x)(":"),
+                            log_lang_options.get(LOG_LANG, lambda x: x)("ServerID"),
+                            log_lang_options.get(LOG_LANG, lambda x: x)(":"),
                             k,
-                            log_lang_options.get(log_lang, lambda x: x)(
+                            log_lang_options.get(LOG_LANG, lambda x: x)(
                                 "does not need to be renewed"
                             ),
-                            log_lang_options.get(log_lang, lambda x: x)("."),
+                            log_lang_options.get(LOG_LANG, lambda x: x)("."),
                         )
                     )
             time.sleep(15)

@@ -65,6 +65,8 @@ Tips. If you deploy it as a severless function, e.g. AWS Lambda, you need to pac
 `SERVER_CHAN_SENDKEY`: (optional) Server Chan notifications.
 
 ### Constant Variable Setting
+`LOG_LANG`: log language can be `en` or `chs` or `cht`.
+
 `CHECK_CAPTCHA_SOLVER_USAGE`: checking TrueCaptcha API usage, options can be `True` or `False`, default is `True`.
 
 `LOGIN_PIN_SENDER`: it depends on which way you choose to get the email pin for login. options can be `ZapierAirtable` or `Mailparser`, default is `ZapierAirtable`.
