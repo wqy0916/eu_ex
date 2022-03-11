@@ -842,9 +842,9 @@ class EUserv(object):
         }
         r = session.post(url, headers=headers, data=data)
         r.raise_for_status()
-        if not json.loads(f.text)["rs"] == "success":
+        if not json.loads(r.text)["rs"] == "success":
             return False
-        token = json.loads(f.text)["token"]["value"]
+        token = json.loads(r.text)["token"]["value"]
         data = {
             "sess_id": sess_id,
             "ord_id": order_id,
