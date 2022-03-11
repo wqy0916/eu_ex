@@ -112,6 +112,10 @@ see [ZapierAirtable](./docs/ZapierAirtable.md). This approach is recommended for
 
 Lambda function handler name: `main.lambda_handler`
 
+### Final Result
+
+![final_result](./docs/imgs/final_result.png)
+
 ## References
 
 ### EUserv "EUserv - Attempted Login" original mail
