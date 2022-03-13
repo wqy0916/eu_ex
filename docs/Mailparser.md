@@ -13,7 +13,7 @@
 5. (**login pin**) Settings(optional), , if you choose mailparser as the sender of the login pin.
      Similarly,
 
-6. (**renew pin **) Create another new inbox for receiving renew pin emails, if you choose mailparser as the sender of the renew pin.
+6. (**renew pin**) Create another new inbox for receiving renew pin emails, if you choose mailparser as the sender of the renew pin.
 
 7. (**renew pin**) Create data parsing rules for renew pin, , if you choose mailparser as the sender of the renew pin.
    - mailparser_data_parsing_rules, `pin` is required, other fields is optional.
