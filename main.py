@@ -519,7 +519,7 @@ class EUserv(object):
                         number += 1
                         if number > 1:
                             log(
-                                "[EUserv] {} {}".format(
+                                "[EUserv] {}{}".format(
                                     log_lang_options.get(LOG_LANG, lambda x: x)(
                                         "Login retried the @@@ time"
                                     ).replace("@@@", ordinal(number)),
