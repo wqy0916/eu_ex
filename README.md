@@ -65,6 +65,8 @@ Tips. If you deploy it as a severless function, e.g. AWS Lambda, you need to pac
 `SERVER_CHAN_SENDKEY`: (optional) Server Chan notifications.
 
 ### Constant Variable Setting
+**NOTE.** Non-environment variables, change them directly in the code before use!!!
+
 `LOG_LANG`: log language can be `en` or `chs` or `cht`.
 
 `CHECK_CAPTCHA_SOLVER_USAGE`: checking TrueCaptcha API usage, options can be `True` or `False`, default is `True`.
