@@ -48,7 +48,7 @@ Tips. If you deploy it as a severless function, e.g. AWS Lambda, you need to pac
 
 `TRUECAPTCHA_APIKEY`: (optional) TrueCaptcha service to solve CAPTCHA. Its default value is TrueCaptcha demo api key, recommended to set to use your own.
 
- **Tips.** TrueCaptcha demo apikey is banned, so it's recommended to set to use your own.
+ **Tips.** TrueCaptcha demo apikey is banned, so it's recommended to set to use your own. TrueCaptcha is currently closed for registration. When registering, the web page will show an error "PreSignUp failed with error Under Maintainance.".
 
 `AIRTABLE_API_KEY`: If you want to adopt `zapier mail parser + airtable` to get email PIN(login or renew), it's required. Otherwise it's optional.
 
