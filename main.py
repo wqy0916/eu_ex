@@ -42,8 +42,10 @@ PASSWORDS = os.environ["PASSWORDS"]
 # 'error': '101.0 above free usage limit 100 per day and no balance',
 # 'requestId': '7690c065-70e0-4757-839b-5fd8381e65c7'
 # }
-TRUECAPTCHA_USERID = os.environ.get("TRUECAPTCHA_USERID", "arun56")
-TRUECAPTCHA_APIKEY = os.environ.get("TRUECAPTCHA_APIKEY", "wMjXmBIcHcdYqO2RrsVN")
+# demo userid: arun56
+# demo apikey: wMjXmBIcHcdYqO2RrsVN
+TRUECAPTCHA_USERID = os.environ.get("TRUECAPTCHA_USERID", "euextend")
+TRUECAPTCHA_APIKEY = os.environ.get("TRUECAPTCHA_APIKEY", "deJhWBaqgd6QDN4BqJGf")
 
 # Checking CAPTCHA API usage, options: True or False
 CHECK_CAPTCHA_SOLVER_USAGE = True
