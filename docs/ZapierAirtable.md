@@ -4,6 +4,12 @@
 
 2. Open [Parse Emails by Zapier](https://parser.zapier.com) to create inbox for receiving pin, one is for login pin (if you choose ZapierAirtable as the sender of the login pin), another is  for renew pin(if you choose ZapierAirtable as the sender of the renew pin).
 
+2. Take login PIN as example, click gear button to set Inbox Initial Template. The operation of renew PIN are similar.
+
+   ![](./imgs/zapierairtable/zapier_mail_parser.png)
+   
+   ![](./imgs/zapierairtable/zapier_initial_template.png)
+
 3. Then register [Airtable](https://www.airtable.com) account for get parsed pin from Zapier.
 
 4. Copy [this base](https://airtable.com/shrEhds9q0oVW1RS1) into your Airtable workspace.
